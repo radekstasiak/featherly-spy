@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -23,12 +25,22 @@ android {
     }
 
     buildTypes {
+        val nuthatchApiKey: String =
+            gradleLocalProperties(rootDir, providers).getProperty("NUTHATCH_API_KEY") ?: ""
+        val eBirdApiKey: String =
+            gradleLocalProperties(rootDir, providers).getProperty("EBIRD_API_KEY") ?: ""
         release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "NUTHATCH_API_KEY", nuthatchApiKey)
+            buildConfigField("String", "EBIRD_API_KEY", eBirdApiKey)
+        }
+        debug {
+            buildConfigField("String", "NUTHATCH_API_KEY", nuthatchApiKey)
+            buildConfigField("String", "EBIRD_API_KEY", eBirdApiKey)
         }
     }
     compileOptions {
@@ -40,6 +52,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"

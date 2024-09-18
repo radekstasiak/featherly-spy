@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ebird_api_endpoint">https://api.ebird.org/</string>
+    <string name="nuthatch_api_endpoint">https://nuthatch.lastelm.software/</string>
+
+</resources>
