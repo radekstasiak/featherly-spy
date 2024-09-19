@@ -72,6 +72,11 @@ dependencies {
 
     // Networking
     implementation(libs.retrofit)
+    implementation(libs.retrofit.moshi.converter)
+    implementation(libs.network.response.adapter) // simple library, which provides retrofit network adapters https://github.com/haroldadmin/NetworkResponseAdapter
+
+    //JSON
+    implementation(libs.moshi)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -83,6 +88,10 @@ dependencies {
     implementation(libs.androidx.material3)
 
     testImplementation(libs.junit)
+    testImplementation(libs.mockk.android)
+    testImplementation(libs.mockk.agent)
+    androidTestImplementation(libs.mockk.android)
+    androidTestImplementation(libs.mockk.agent)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
