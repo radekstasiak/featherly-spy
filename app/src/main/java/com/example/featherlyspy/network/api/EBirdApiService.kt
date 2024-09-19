@@ -1,5 +1,7 @@
 package com.example.featherlyspy.network.api
 
+import com.example.featherlyspy.network.model.RecentNearbyObsApiModel
+import com.example.featherlyspy.network.model.RestError
 import com.haroldadmin.cnradapter.NetworkResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -10,5 +12,5 @@ interface EBirdApiService {
     fun getRecentNearbyObservations(
         @Query("lat") lat: Double,
         @Query("lng") lng: Double
-    ): NetworkResponse<Unit, Unit>
+    ): NetworkResponse<List<RecentNearbyObsApiModel>, RestError>
 }
