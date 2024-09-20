@@ -60,6 +60,7 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            merges += setOf("META-INF/LICENSE.md", "META-INF/LICENSE-notice.md")
         }
     }
 }
@@ -73,10 +74,17 @@ dependencies {
     // Networking
     implementation(libs.retrofit)
     implementation(libs.retrofit.moshi.converter)
-    implementation(libs.network.response.adapter) // simple library, which provides retrofit network adapters https://github.com/haroldadmin/NetworkResponseAdapter
+
+    // https://github.com/haroldadmin/NetworkResponseAdapter
+    // simple library, which provides retrofit network adapters
+    implementation(libs.network.response.adapter)
 
     //JSON
     implementation(libs.moshi)
+
+    // https://github.com/michaelbull/kotlin-result
+    // another useful library, which helps to represent success/error results
+    implementation(libs.kotlin.result)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

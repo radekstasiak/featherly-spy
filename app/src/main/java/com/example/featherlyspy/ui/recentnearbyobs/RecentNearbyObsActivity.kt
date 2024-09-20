@@ -21,6 +21,7 @@ class RecentNearbyObsActivity : ComponentActivity() {
     private val viewModel by viewModels<RecentNearbyObsViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel.receiveAction(RecentNearbyObsAction.ViewCreated)
         enableEdgeToEdge()
         setContent {
             FeatherlySpyTheme {

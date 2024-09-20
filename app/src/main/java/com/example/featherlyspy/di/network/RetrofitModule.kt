@@ -1,6 +1,7 @@
 package com.example.featherlyspy.di.network
 
 import com.example.featherlyspy.di.annotations.ApiEBirdEndpoint
+import com.example.featherlyspy.di.annotations.EBirdOkHttpClient
 import com.example.featherlyspy.network.api.EBirdApiService
 import com.example.featherlyspy.network.retrofit.EBirdRetrofitFactory
 import dagger.Module
@@ -16,7 +17,7 @@ class RetrofitModule {
     @Provides
     fun provideEBirdRetrofitFactory(
         @ApiEBirdEndpoint apiEndpoint: String,
-        okHttpClient: OkHttpClient
+        @EBirdOkHttpClient okHttpClient: OkHttpClient
     ): EBirdRetrofitFactory = EBirdRetrofitFactory(
         apiEndpoint = apiEndpoint,
         okHttpClient = okHttpClient

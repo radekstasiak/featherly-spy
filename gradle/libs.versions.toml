@@ -13,6 +13,7 @@ hilt = "2.52"
 mockk = "1.13.12"
 network-response-adapter = "5.0.0"
 moshi = "1.15.1"
+kotlin-result = "2.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -37,6 +38,7 @@ mockk-android = { group = "io.mockk", name = "mockk-android", version.ref = "moc
 mockk-agent = { group = "io.mockk", name = "mockk-agent", version.ref = "mockk" }
 network-response-adapter = { group = "com.github.haroldadmin", name = "NetworkResponseAdapter", version.ref = "network-response-adapter" }
 moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
+kotlin-result = { group = "com.michael-bull.kotlin-result", name = "kotlin-result", version.ref = "kotlin-result" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
