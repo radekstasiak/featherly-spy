@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface EBirdApiService {
 
     @GET("/v2/data/obs/geo/recent")
-    fun getRecentNearbyObservations(
+    suspend fun getRecentNearbyObservations(
         @Query("lat") lat: Double,
         @Query("lng") lng: Double
     ): NetworkResponse<List<RecentNearbyObsApiModel>, NetworkError>

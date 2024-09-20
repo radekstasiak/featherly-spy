@@ -1,5 +1,6 @@
 package com.example.featherlyspy.ui.recentnearbyobs
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.example.featherlyspy.basemvi.BaseViewModel
 import com.example.featherlyspy.domain.recentnearbyobs.GetRecentNearbyObsUseCase

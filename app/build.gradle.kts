@@ -75,6 +75,7 @@ dependencies {
     // Networking
     implementation(libs.retrofit)
     implementation(libs.retrofit.moshi.converter)
+    implementation(libs.okhttp.logging)
 
     // https://github.com/haroldadmin/NetworkResponseAdapter
     // simple library, which provides retrofit network adapters

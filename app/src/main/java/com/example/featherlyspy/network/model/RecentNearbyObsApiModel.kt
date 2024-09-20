@@ -16,5 +16,5 @@ data class RecentNearbyObsApiModel(
     @Json(name = "obsReviewed") val obsReviewed: Boolean,
     @Json(name = "locationPrivate") val locationPrivate: Boolean,
     @Json(name = "subId") val subId: String,
-    @Json(name = "exoticCategory") val exoticCategory: String
+    @Json(name = "exoticCategory") val exoticCategory: String?
 )

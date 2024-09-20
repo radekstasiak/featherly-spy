@@ -11,6 +11,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 
 interface OkHttpModule {
 
@@ -36,10 +37,19 @@ interface OkHttpModule {
             )
 
         @Provides
+        fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
+            val httpLoggingInterceptor = HttpLoggingInterceptor()
+            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+            return httpLoggingInterceptor
+        }
+
+        @Provides
         fun getOkHttpClientFactory(
-            eBirdHttpClientInterceptor: EBirdHttpClientInterceptor
+            eBirdHttpClientInterceptor: EBirdHttpClientInterceptor,
+            httpLoggingInterceptor:HttpLoggingInterceptor
         ): OkHttpClientFactory = OkHttpClientFactory(
-            eBirdHttpClientInterceptor = eBirdHttpClientInterceptor
+            eBirdHttpClientInterceptor = eBirdHttpClientInterceptor,
+            httpLoggingInterceptor=httpLoggingInterceptor
         )
 
         @Provides

@@ -7,6 +7,7 @@ import com.squareup.moshi.JsonClass
 data class NetworkError(
     @Json(name = "errors") val errors: List<ErrorDetails>
 ) {
+    @JsonClass(generateAdapter = true)
     data class ErrorDetails(
         @Json(name = "status") val status: String,
         @Json(name = "code") val code: String,
