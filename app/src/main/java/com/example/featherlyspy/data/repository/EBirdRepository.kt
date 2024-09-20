@@ -1,7 +1,7 @@
 package com.example.featherlyspy.data.repository
 
 import com.example.featherlyspy.network.model.RecentNearbyObsApiModel
-import com.example.featherlyspy.network.model.RestError
+import com.example.featherlyspy.network.model.NetworkError
 import com.haroldadmin.cnradapter.NetworkResponse
 
 interface EBirdRepository {
@@ -9,5 +9,5 @@ interface EBirdRepository {
     suspend fun getRecentNearbyObservations(
         lat: Double,
         lng: Double
-    ): NetworkResponse<List<RecentNearbyObsApiModel>, RestError>
+    ): NetworkResponse<List<RecentNearbyObsApiModel>, NetworkError>
 }

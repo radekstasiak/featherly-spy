@@ -1,7 +1,9 @@
 package com.example.featherlyspy.network.model
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 data class RecentNearbyObsApiModel(
     @Json(name = "speciesCode") val speciesCode: String,
     @Json(name = "comName") val comName: String,

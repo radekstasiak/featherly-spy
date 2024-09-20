@@ -1,8 +1,10 @@
 package com.example.featherlyspy.network.model
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
-data class RestError(
+@JsonClass(generateAdapter = true)
+data class NetworkError(
     @Json(name = "errors") val errors: List<ErrorDetails>
 ) {
     data class ErrorDetails(
