@@ -16,9 +16,9 @@ import com.example.featherlyspy.ui.theme.FeatherlySpyTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class RecentNearbyObsActivity : ComponentActivity() {
 
-    private val mainViewModel by viewModels<MainViewModel>()
+    private val viewModel by viewModels<RecentNearbyObsViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
