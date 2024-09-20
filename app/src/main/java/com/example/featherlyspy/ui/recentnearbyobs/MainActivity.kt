@@ -1,4 +1,4 @@
-package com.example.featherlyspy
+package com.example.featherlyspy.ui.recentnearbyobs
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
