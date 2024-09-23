@@ -101,6 +101,7 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.mockk.android)
     testImplementation(libs.mockk.agent)
+    testImplementation(libs.coroutines.test)
     androidTestImplementation(libs.mockk.android)
     androidTestImplementation(libs.mockk.agent)
     androidTestImplementation(libs.androidx.junit)

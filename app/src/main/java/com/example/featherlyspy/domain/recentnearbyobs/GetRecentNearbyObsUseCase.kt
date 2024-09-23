@@ -7,7 +7,7 @@ import com.github.michaelbull.result.Err
 import com.github.michaelbull.result.Ok
 
 import com.github.michaelbull.result.Result
-import com.haroldadmin.cnradapter.NetworkResponse
+import com.github.michaelbull.result.fold
 import javax.inject.Inject
 
 class GetRecentNearbyObsUseCase @Inject constructor(
@@ -20,17 +20,11 @@ class GetRecentNearbyObsUseCase @Inject constructor(
         lat: Double,
         lng: Double
     ): Result<List<RecentNearbyObsModel>, DomainError> =
-        when (
-            val result = repository.getRecentNearbyObservations(
-                lat = lat,
-                lng = lng
-            )
-        ) {
-            is NetworkResponse.Success ->
-                Ok(mapper.toDomain(result.body))
-
-            is NetworkResponse.Error ->
-                Err(errorMapper.toDomain(result.body))
-        }
-
+        repository.getRecentNearbyObservations(
+            lat = lat,
+            lng = lng
+        ).fold(
+            { success -> Ok(mapper.toDomain(success)) },
+            { error -> Err(errorMapper.toDomain(error)) }
+        )
 }

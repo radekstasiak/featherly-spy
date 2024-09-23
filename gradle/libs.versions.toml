@@ -16,6 +16,7 @@ moshi = "1.15.1"
 kotlin-result = "2.0.0"
 kotlin-ksp = "1.9.0-1.0.13"
 okhttp-logging = "4.12.0"
+coroutines-test = "1.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -43,7 +44,7 @@ network-response-adapter = { group = "com.github.haroldadmin", name = "NetworkRe
 moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
 moshi-codegen = { group = "com.squareup.moshi", name = "moshi-kotlin-codegen", version.ref = "moshi" }
 kotlin-result = { group = "com.michael-bull.kotlin-result", name = "kotlin-result", version.ref = "kotlin-result" }
-
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines-test" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
