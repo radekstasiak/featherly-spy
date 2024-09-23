@@ -8,18 +8,20 @@ import com.haroldadmin.cnradapter.NetworkResponse
 
 private const val GENERIC_ERROR_MESSAGE = "Unknown error"
 
-fun <S> NetworkResponse.Error<S, ApiError>.toNetworkError(): RepositoryError =
+private fun <S> NetworkResponse.Error<S, ApiError>.toNetworkError(): RepositoryError =
     when (this) {
         is NetworkResponse.ServerError ->
             this.body?.let {
                 if (it.errors.isNotEmpty()) {
                     RepositoryError(
                         httpErrorCode = code,
-                        errorDetails = "${it.errors[0].status} + ${it.errors[0].title}"
+                        errorDetails = "${it.errors[0].status} ${it.errors[0].title}"
                     )
                 } else {
-                    error?.toNetworkError()
-                } ?: error?.toNetworkError() ?: RepositoryError(
+                    error?.toNetworkError(
+                        code = code
+                    )
+                } ?: error?.toNetworkError(code = code) ?: RepositoryError(
                     errorDetails = GENERIC_ERROR_MESSAGE,
                     httpErrorCode = code
                 )
@@ -29,7 +31,6 @@ fun <S> NetworkResponse.Error<S, ApiError>.toNetworkError(): RepositoryError =
             )
 
         is NetworkResponse.NetworkError -> error.toNetworkError()
-
         is NetworkResponse.UnknownError -> error.toNetworkError(
             code = code
         )
