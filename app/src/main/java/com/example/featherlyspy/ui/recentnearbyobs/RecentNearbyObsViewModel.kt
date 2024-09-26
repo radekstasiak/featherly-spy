@@ -21,10 +21,30 @@ class RecentNearbyObsViewModel @Inject constructor(
             when (action) {
                 RecentNearbyObsAction.ViewCreated -> {
                     setState(oldState.copy(isLoading = true))
-                    getRecentNearbyObsUseCase(
+                    val result = getRecentNearbyObsUseCase(
                         lat = 54.38645494829912,
                         lng = 18.569840002964966
                     )
+
+                    if (result.isOk) {
+                        setState(
+                            oldState.copy(
+                                isLoading = false,
+                                result.value
+                            )
+                        )
+                    }
+//                        .fold(
+//                        { success ->
+//                            setState(
+//                                oldState.copy(
+//                                    isLoading = false,
+//                                    recentNearbyObsItems = success
+//                                )
+//                            )
+//                        },
+//                        { error -> }
+//                    )
                 }
             }
         }
