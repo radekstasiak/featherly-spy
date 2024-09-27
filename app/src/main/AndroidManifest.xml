@@ -16,15 +16,21 @@
         android:theme="@style/Theme.FeatherlySpy"
         tools:targetApi="31">
         <activity
-            android:name=".ui.recentnearbyobs.RecentNearbyObsActivity"
+            android:name=".ui.composeplayground.basicstate.PlaygroundActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.FeatherlySpy">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.recentnearbyobs.RecentNearbyObsActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.FeatherlySpy">
+
         </activity>
     </application>
 
