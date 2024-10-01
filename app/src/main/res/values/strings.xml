@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Featherly Spy</string>
-
+    <string name="recent_nearby_obs_list_header">Recent nearby observations</string>
 </resources>
