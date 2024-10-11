@@ -16,6 +16,9 @@
       <SelectionState runConfigName="RecentNearbyObservationsTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="test_recent_nearby_obs_loads_list_when_started()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>

@@ -1,28 +1,38 @@
 package com.example.featherlyspy
 
+import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.performScrollToNode
 import com.example.featherlyspy.ui.recentnearbyobs.RecentNearbyObsActivity
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import dagger.hilt.android.testing.UninstallModules
 import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.RuleChain
 
-//https://medium.com/pulselive/espresso-testing-with-hilt-and-mockwebserver-82f7bcf5a525
-@UninstallModules
 @HiltAndroidTest
 class RecentNearbyObservationsTest {
 
-    @get:Rule
-    var hiltRule = HiltAndroidRule(this)
+    private val hiltRule = HiltAndroidRule(this)
+    private val mockWebServerRule = MockWebServerRule()
+    private val composeTestRule = createAndroidComposeRule<RecentNearbyObsActivity>()
 
     @get:Rule
-    val composeTestRule = createAndroidComposeRule<RecentNearbyObsActivity>()
+    internal val testRule: RuleChain = RuleChain
+        .outerRule(hiltRule)
+        .around(mockWebServerRule)
+        .around(composeTestRule)
 
     @Test
     fun `test_recent_nearby_obs_loads_list_when_started`() {
 
-//        composeTestRule.onn
+        composeTestRule.onNodeWithTag("test tag")
+            .performScrollToNode(hasText("Goldcrest"))
+            .assertIsDisplayed()
 
     }
+
+
 }
