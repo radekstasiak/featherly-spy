@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,12 +27,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.featherlyspy.R
 import com.example.featherlyspy.domain.recentnearbyobs.RecentNearbyObsModel
+import com.example.featherlyspy.ui.ComposableTestTag.RECENT_NEARBY_OBS_LIST_TAG
 import com.example.featherlyspy.ui.theme.FeatherlySpyTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -74,7 +75,9 @@ fun RecentNearbyObsList(
             style = MaterialTheme.typography.headlineSmall,
             modifier = modifier.padding(bottom = 8.dp)
         )
-        LazyColumn {
+        LazyColumn(
+            modifier = Modifier.testTag(RECENT_NEARBY_OBS_LIST_TAG)
+        ) {
             items(
                 items = state.recentNearbyObsItems
             ) { model ->
