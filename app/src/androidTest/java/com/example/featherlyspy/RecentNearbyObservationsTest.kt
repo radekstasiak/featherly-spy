@@ -1,10 +1,12 @@
 package com.example.featherlyspy
 
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performScrollToNode
+import com.example.featherlyspy.ui.ComposableTestTag.RECENT_NEARBY_OBS_LIST_TAG
 import com.example.featherlyspy.ui.recentnearbyobs.RecentNearbyObsActivity
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -27,8 +29,7 @@ class RecentNearbyObservationsTest {
 
     @Test
     fun `test_recent_nearby_obs_loads_list_when_started`() {
-
-        composeTestRule.onNodeWithTag("test tag")
+        composeTestRule.onNodeWithTag(RECENT_NEARBY_OBS_LIST_TAG)
             .performScrollToNode(hasText("Goldcrest"))
             .assertIsDisplayed()
 

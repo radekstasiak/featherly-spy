@@ -1,7 +1,6 @@
 package com.example.featherlyspy
 
 import com.example.featherlyspy.utils.Constants.MOCK_WEBSERVER_PORT
-import com.example.featherlyspy.utils.JsonFileUtils.getJsonContent
 import com.example.featherlyspy.utils.MockResponseFactory
 import okhttp3.mockwebserver.Dispatcher
 import okhttp3.mockwebserver.MockResponse
