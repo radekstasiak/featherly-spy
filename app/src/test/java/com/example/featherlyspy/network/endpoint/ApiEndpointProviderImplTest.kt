@@ -8,12 +8,12 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
-class ApiEndpointProviderTest {
+class ApiEndpointProviderImplTest {
 
 
     private val context = mockk<Context>()
-    private val sut: ApiEndpointProvider by lazy {
-        ApiEndpointProvider(
+    private val sut: ApiEndpointProviderImpl by lazy {
+        ApiEndpointProviderImpl(
             context = context
         )
     }
